@@ -1,3 +1,4 @@
+# Clear Linux* OS `machine-learning-ui` container image with [Jupyter php](https://litipk.github.io/Jupyter-PHP-Installer/) and [Bash](https://github.com/takluyver/bash_kernel) kernels
 ## Clone this repo
 
 ```bash
