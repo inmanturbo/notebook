@@ -16,7 +16,8 @@ docker build -t inmanturbo/notebook .
 ```bash
 docker run --rm -it  -p 8888:8888/tcp inmanturbo/notebook
 ```
-### Grab the url with the token from your terminal output and paste it into your broswers address bar
+<pre> Grab the url with the token from your terminal output 
+and paste it into your broswers address bar </pre>
 
 # Original README below
 
