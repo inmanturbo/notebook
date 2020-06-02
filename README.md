@@ -1,3 +1,25 @@
+## Clone this repo
+
+```bash
+git clone https://github.com/inmanturbo/notebook.git
+```
+
+## Change into cloned repo directory
+```bash
+cd  notebook
+```
+## Build this image
+```bash
+docker build -t inmanturbo/notebook .
+```
+## Run this container
+```bash
+docker run --rm -it  -p 8888:8888/tcp inmanturbo/notebook
+```
+### Grab the url with the token from your terminal output and paste it into your broswers address bar
+
+# Original README below
+
 # Clear Linux* OS `machine-learning-ui` container image
 
 <!-- Required -->
