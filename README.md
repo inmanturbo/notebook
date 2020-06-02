@@ -7,7 +7,7 @@ git clone https://github.com/inmanturbo/notebook.git
 
 ## Change into cloned repo directory
 ```bash
-cd  notebook
+cd notebook
 ```
 ## Build this image
 ```bash
