@@ -14,6 +14,8 @@ RUN swupd bundle-add php-extras wget \
     && echo "extension=zmq.so" > /etc/php.d/zmq.ini \
     && wget https://litipk.github.io/Jupyter-PHP-Installer/dist/jupyter-php-installer.phar \
     && php ./jupyter-php-installer.phar install /usr/lib/python3.8/site-packages \
+    && mkdir -p /opt/jupyter-php/pkgs/vendor/litipk/jupyter-php/src/ \
+    && ln -s /usr/lib/python3.8/site-packages/pkgs/vendor/litipk/jupyter-php/src/kernel.php /opt/jupyter-php/pkgs/vendor/litipk/jupyter-php/src/ \
     && rm -rf /var/lib/swupd/*
 
 EXPOSE 8888
