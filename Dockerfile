@@ -1,8 +1,11 @@
 FROM clearlinux/machine-learning-ui
 
 ARG swupd_args
+ARG PASSWORD
 
-RUN swupd bundle-add php-extras wget \
+RUN swupd bundle-add php-extras wget git nodejs-basic \
+    && echo -e "${PASSWORD}\n${PASSWORD}" | \
+    jupyter-notebook password \
     && sh -c "echo 'precedence ::ffff:0:0/96 100' >> /etc/gai.conf" \
     && pip install bash_kernel \
     && python -m bash_kernel.install \
@@ -16,10 +19,12 @@ RUN swupd bundle-add php-extras wget \
     && php ./jupyter-php-installer.phar install /usr/lib/python3.8/site-packages \
     && mkdir -p /opt/jupyter-php/pkgs/vendor/litipk/jupyter-php/src/ \
     && ln -s /usr/lib/python3.8/site-packages/pkgs/vendor/litipk/jupyter-php/src/kernel.php /opt/jupyter-php/pkgs/vendor/litipk/jupyter-php/src/ \
+    && pip install --upgrade jupyterlab-git \
+    && jupyter-lab build --minimize=False \
     && rm -rf /var/lib/swupd/*
 
 EXPOSE 8888
 
-CMD ["jupyter-notebook"]
+CMD ["jupyter-lab"]
 
 COPY jupyter_notebook_config.py /etc/jupyter/

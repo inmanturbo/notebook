@@ -13,7 +13,6 @@ spec:
       name: jupyter
   selector:
     app: ml-notebook
-
 ---
 apiVersion: apps/v1beta2
 kind: Deployment
