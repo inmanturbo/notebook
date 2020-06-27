@@ -1,7 +1,6 @@
 FROM clearlinux/machine-learning-ui
 
 ARG swupd_args
-ARG PASSWORD
 
 RUN swupd bundle-add php-extras wget git nodejs-basic \
     && sh -c "echo 'precedence ::ffff:0:0/96 100' >> /etc/gai.conf" \
@@ -22,6 +21,14 @@ RUN swupd bundle-add php-extras wget git nodejs-basic \
     && rm -rf /var/lib/swupd/*
 
 EXPOSE 8888
+
+# Optional ports for web dev servers
+
+# php
+EXPOSE 8000
+
+#node
+EXPOSE 8080
 
 CMD ["jupyter-lab"]
 
