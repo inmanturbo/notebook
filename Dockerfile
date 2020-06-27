@@ -4,8 +4,6 @@ ARG swupd_args
 ARG PASSWORD
 
 RUN swupd bundle-add php-extras wget git nodejs-basic \
-    && echo -e "${PASSWORD}\n${PASSWORD}" | \
-    jupyter-notebook password \
     && sh -c "echo 'precedence ::ffff:0:0/96 100' >> /etc/gai.conf" \
     && pip install bash_kernel \
     && python -m bash_kernel.install \
